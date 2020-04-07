@@ -10,25 +10,15 @@ class Keyboard:
         self.message = message
 
     def start_keyboard(self):
-        faq_button_text = """
-        
-        F.A.Q.
-        
-        
-        
-        
-        
-Секция, где расписаны ответы на самые популярные вопросы касательно эпидемии COVID-19.
-Здесь вы сможете узнать, кто входит в группы риска, какие меры стоит предпринять в случае заболевания и много другое"""
-        
         markup = types.ReplyKeyboardMarkup()
-        faq_button = types.KeyboardButton(text = faq_button_text)  # \ud83d\udcbc
-        button2 = types.KeyboardButton('\ud83d\udcbc Inline Keyboard 2')  # \ud83c\udfe2
-        button3 = types.KeyboardButton(' Callback Inline 2')  # \ud83d\udcf2
+        faq_button = types.KeyboardButton(text = 'F.A.Q.')
+        stat_button = types.KeyboardButton('Stat')
+        prof_button = types.KeyboardButton('Профилактика')
         # markup.ResizeKeyboard = True
-        markup.row(faq_button, button2)
-        markup.row(button3)
-        self.send_message = bot.send_message(self.message.from_user.id, 'Text', reply_markup=markup)
+        markup.row(faq_button, stat_button)
+        markup.row(prof_button)
+        Text = 'Text'  # Объяснение секций выбора
+        bot.send_message(self.message.from_user.id, Text, reply_markup=markup)
 
     def button_one_keyboard(self, message):
         markup = types.ReplyKeyboardMarkup()
