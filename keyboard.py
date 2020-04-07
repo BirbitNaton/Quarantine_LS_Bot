@@ -17,14 +17,16 @@ class Keyboard:
         # markup.ResizeKeyboard = True
         markup.row(faq_button, stat_button)
         markup.row(prof_button)
-        Text = 'Text'  # Объяснение секций выбора
-        bot.send_message(self.message.from_user.id, Text, reply_markup=markup)
+        text = 'Text'  # Объяснение секций выбора
+        bot.send_message(self.message.from_user.id, text, reply_markup=markup)
 
-    def button_one_keyboard(self, message):
+    def faq_button_keyboard(self, message):
         markup = types.ReplyKeyboardMarkup()
-        button1 = types.KeyboardButton('Button 1')
-        button2 = types.KeyboardButton('Button 2')
-        back_button = types.KeyboardButton('Back to main menu')
-        markup.row(button1, button2)
+        sick_button = types.KeyboardButton('Заболевание')
+        symptomes_button = types.KeyboardButton('Симптомы')
+        back_button = types.KeyboardButton('Назад')
+        markup.row(sick_button, symptomes_button)
         markup.row(back_button)
-        bot.send_message(message.chat.id, 'Keyboard level 2.', reply_markup=markup)
+        text = 'Text'  # Объяснение секций выбора
+        bot.send_message(self.message.from_user.id, text, reply_markup=markup)
+        
