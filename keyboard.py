@@ -10,12 +10,16 @@ class Keyboard:
         self.message = message
 
     def start_keyboard(self):
+        faq_button_text = """F.A.Q.
+Секция, где расписаны ответы на самые популярные вопросы касательно эпидемии COVID-19.
+Здесь вы сможете узнать, кто входит в группы риска, какие меры стоит предпринять в случае заболевания и много другое"""
+        
         markup = types.ReplyKeyboardMarkup()
-        button1 = types.KeyboardButton(' Simple Keyboard 2')  # \ud83d\udcbc
+        faq_button = types.KeyboardButton(text = faq_button_text)  # \ud83d\udcbc
         button2 = types.KeyboardButton(' Inline Keyboard 2')  # \ud83c\udfe2
         button3 = types.KeyboardButton(' Callback Inline 2')  # \ud83d\udcf2
         # markup.ResizeKeyboard = True
-        markup.row(button1, button2)
+        markup.row(faq_button, button2)
         markup.row(button3)
         self.send_message = bot.send_message(self.message.from_user.id, 'Text', reply_markup=markup)
 
