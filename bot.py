@@ -16,7 +16,7 @@ from inline_keyboard import *
 API_TOKEN = config.token
 
 Bot = telebot.TeleBot(token=API_TOKEN)
-current_section = 'start'
+current_section = 'start_keyboard()'
 
 
 @bot.message_handler(commands=['start'])
