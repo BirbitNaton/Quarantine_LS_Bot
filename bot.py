@@ -16,7 +16,7 @@ from inline_keyboard import *
 API_TOKEN = config.token
 
 Bot = telebot.TeleBot(token=API_TOKEN)
-current_section = 'start_keyboard()'
+current_section = 'start'
 
 
 @bot.message_handler(commands=['start'])
@@ -28,19 +28,14 @@ def welcome(message):
 
 @bot.message_handler(regexp='F.A.Q.')
 def faq(message):
-    global current_section
-    
-    current_section = 'faq_button_keyboard()'
     faq_keyboard = Keyboard(message)
     faq_keyboard.faq_button_keyboard()
 
 
-@bot.message_handler(redexp='Назад')
+@bot.message_handler(redexp='В главное меню')
 def one_layer_back(message):
-    global current_section
-    
-    back_keyboard = Keyboard(message)
-    eval('back_keyboard.' + current_section)
+    welcome_keyboard = Keyboard(message)
+    welcome_keyboard.start_keyboard()
 
 
 bot.polling(none_stop=True, interval=0)
