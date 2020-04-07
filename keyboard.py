@@ -20,7 +20,7 @@ class Keyboard:
         text = 'Text'  # Объяснение секций выбора
         bot.send_message(self.message.from_user.id, text, reply_markup=markup)
 
-    def faq_button_keyboard(self, message):
+    def faq_button_keyboard(self):
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         sick_button = types.KeyboardButton('Заболевание')
         symptomes_button = types.KeyboardButton('Симптомы')
