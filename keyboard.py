@@ -10,8 +10,7 @@ class Keyboard:
         self.message = message
 
     def start_keyboard(self):
-        faq_button_text = 
-        """
+        faq_button_text = """
         
         F.A.Q.
         
