@@ -10,7 +10,7 @@ class Keyboard:
         self.message = message
 
     def start_keyboard(self):
-        markup = types.ReplyKeyboardMarkup()
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         faq_button = types.KeyboardButton(text = 'F.A.Q.')
         stat_button = types.KeyboardButton('Stat')
         prof_button = types.KeyboardButton('Профилактика')
@@ -21,7 +21,7 @@ class Keyboard:
         bot.send_message(self.message.from_user.id, text, reply_markup=markup)
 
     def faq_button_keyboard(self, message):
-        markup = types.ReplyKeyboardMarkup()
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         sick_button = types.KeyboardButton('Заболевание')
         symptomes_button = types.KeyboardButton('Симптомы')
         back_button = types.KeyboardButton('Назад')
@@ -29,4 +29,3 @@ class Keyboard:
         markup.row(back_button)
         text = 'Text'  # Объяснение секций выбора
         bot.send_message(self.message.from_user.id, text, reply_markup=markup)
-        
