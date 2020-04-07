@@ -23,7 +23,7 @@ class Keyboard:
         
         markup = types.ReplyKeyboardMarkup()
         faq_button = types.KeyboardButton(text = faq_button_text)  # \ud83d\udcbc
-        button2 = types.KeyboardButton(' Inline Keyboard 2')  # \ud83c\udfe2
+        button2 = types.KeyboardButton('\ud83d\udcbc Inline Keyboard 2')  # \ud83c\udfe2
         button3 = types.KeyboardButton(' Callback Inline 2')  # \ud83d\udcf2
         # markup.ResizeKeyboard = True
         markup.row(faq_button, button2)
