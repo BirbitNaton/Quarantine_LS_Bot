@@ -8,14 +8,14 @@ previous_section = 'start'
 
 
 class Keyboard:
-    
+
     def __init__(self, message):
         self.message = message
 
     def start_keyboard(self):
         global previous_section
         previous_section = 'start'
-        
+
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=False)
         faq_button = types.KeyboardButton('F.A.Q.')
         stat_button = types.KeyboardButton('Stat')
@@ -29,7 +29,7 @@ class Keyboard:
     def faq_button_keyboard(self):
         global previous_section
         previous_section = 'start_keyboard()'
-        
+
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         sick_button = types.KeyboardButton('Заболевание')
         symptomes_button = types.KeyboardButton('Симптомы')
@@ -43,7 +43,7 @@ class Keyboard:
     def stat_keyboard(self):
         global previous_section
         previous_section = 'start_keyboard()'
-        
+
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         russia_button = types.KeyboardButton('По России')
         world_button = types.KeyboardButton('По миру')
@@ -57,7 +57,7 @@ class Keyboard:
     def russia_keyboard(self):
         global previous_section
         previous_section = 'stat_keyboard()'
-        
+
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         back_button = types.KeyboardButton('В главное меню')
         step_back_button = types.KeyboardButton('Назад')
@@ -68,7 +68,7 @@ class Keyboard:
     def world_keyboard(self):
         global previous_section
         previous_section = 'stat_keyboard()'
-        
+
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         back_button = types.KeyboardButton('В главное меню')
         step_back_button = types.KeyboardButton('Назад')
