@@ -24,7 +24,6 @@ def welcome(message):
     bot.reply_to(message, """Привет! Я бот Lomonosov Studio, и я хочу помочь тебе узнать больше о COVID-19.""")
     welcome_keyboard = Keyboard(message)
     welcome_keyboard.start_keyboard()
-    bot.send_message(message.from_user.id, message.from_user.id)
 
 
 @bot.message_handler(regexp='F.A.Q.')
