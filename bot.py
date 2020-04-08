@@ -60,6 +60,12 @@ def russian_stats(message):
 def world_stats(message):
     world_stats_keyboard = Keyboard(message)
     world_stats_keyboard.world_keyboard()
-
+    
+    
+@bot.message_handler(regexp='Прочее')
+def miscellaneous(message):
+    faq_misc_keyboard = Keyboard(message)
+    faq_misc_keyboard.miscellaneous_keyboard()
+    
 
 bot.polling(none_stop=True, interval=0)
