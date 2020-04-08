@@ -25,8 +25,9 @@ class Keyboard:
         sick_button = types.KeyboardButton('Заболевание')
         symptomes_button = types.KeyboardButton('Симптомы')
         back_button = types.KeyboardButton('В главное меню')
+        step_back_button = types.KeyboardButton('Назад')
         markup.row(sick_button, symptomes_button)
-        markup.row(back_button)
+        markup.row(back_button, step_back_button)
         text = 'Text'  # Объяснение секций выбора
         bot.send_message(self.message.from_user.id, text, reply_markup=markup)
 
@@ -39,4 +40,20 @@ class Keyboard:
         markup.row(russia_button, world_button)
         markup.row(back_button, step_back_button)
         text = 'Выберите формат статистики.'
+        bot.send_message(self.message.from_user.id, text, reply_markup=markup)
+
+    def russia_keyboard(self):
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        back_button = types.KeyboardButton('В главное меню')
+        step_back_button = types.KeyboardButton('Назад')
+        markup.row(back_button, step_back_button)
+        text = 'russian stats'
+        bot.send_message(self.message.from_user.id, text, reply_markup=markup)
+
+    def world_keyboard(self):
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        back_button = types.KeyboardButton('В главное меню')
+        step_back_button = types.KeyboardButton('Назад')
+        markup.row(back_button, step_back_button)
+        text = 'world stats'
         bot.send_message(self.message.from_user.id, text, reply_markup=markup)
