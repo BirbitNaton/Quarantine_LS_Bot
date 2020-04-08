@@ -39,7 +39,7 @@ class Keyboard:
         step_back_button = types.KeyboardButton('Назад')
         markup.row(russia_button, world_button)
         markup.row(back_button, step_back_button)
-        text = 'Выберите формат статистики.'
+        text = 'Выберите раздел статистики.'
         bot.send_message(self.message.from_user.id, text, reply_markup=markup)
 
     def russia_keyboard(self):
