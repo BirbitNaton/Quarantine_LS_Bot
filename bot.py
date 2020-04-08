@@ -71,7 +71,7 @@ def world_stats(message):
     global previous_section
     previous_section = 'stat.keyboard()'
     world_stats_keyboard = Keyboard(message)
-    world_stats_keyboard.russia_keyboard()
+    world_stats_keyboard.world_keyboard()
 
 
 bot.polling(none_stop=True, interval=0)
