@@ -32,10 +32,11 @@ class Keyboard:
 
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         sick_button = types.KeyboardButton('Заболевание')
-        symptomes_button = types.KeyboardButton('Симптомы')
+        symptoms_button = types.KeyboardButton('Симптомы')
+        miscellaneous_button = types.KeyboardButton('Прочее')
         back_button = types.KeyboardButton('В главное меню')
         step_back_button = types.KeyboardButton('Назад')
-        markup.row(sick_button, symptomes_button)
+        markup.row(sick_button, symptoms_button, miscellaneous_button)
         markup.row(back_button, step_back_button)
         text = 'Text'  # Объяснение секций выбора
         bot.send_message(self.message.from_user.id, text, reply_markup=markup)
@@ -74,4 +75,15 @@ class Keyboard:
         step_back_button = types.KeyboardButton('Назад')
         markup.row(back_button, step_back_button)
         text = 'world stats'
+        bot.send_message(self.message.from_user.id, text, reply_markup=markup)
+
+    def miscellaneous_keyboard(self):
+        global previous_section
+        previous_section = 'faq_keyboard()'
+
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        back_button = types.KeyboardButton('В главное меню')
+        step_back_button = types.KeyboardButton('Назад')
+        markup.row(back_button, step_back_button)
+        text = 'Miscellaneous'
         bot.send_message(self.message.from_user.id, text, reply_markup=markup)
