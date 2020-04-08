@@ -10,7 +10,7 @@ class Keyboard:
         self.message = message
 
     def start_keyboard(self):
-        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=False)
         faq_button = types.KeyboardButton(text = 'F.A.Q.')
         stat_button = types.KeyboardButton('Stat')
         prof_button = types.KeyboardButton('Профилактика')
