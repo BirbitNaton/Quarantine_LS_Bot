@@ -24,6 +24,7 @@ def welcome(message):
     bot.reply_to(message, 'Hello World!')  # Приветствие, введение для пользователя
     welcome_keyboard = Keyboard(message)
     welcome_keyboard.start_keyboard()
+    bot.send_message(message.from_user.id, message.from_user.id)
 
 
 @bot.message_handler(regexp='F.A.Q.')
@@ -60,12 +61,30 @@ def russian_stats(message):
 def world_stats(message):
     world_stats_keyboard = Keyboard(message)
     world_stats_keyboard.world_keyboard()
-    
-    
+
+
 @bot.message_handler(regexp='Прочее')
 def miscellaneous(message):
     faq_misc_keyboard = Keyboard(message)
     faq_misc_keyboard.miscellaneous_keyboard()
+
+
+@bot.message_handler(regexp='Симптомы')
+def symptoms(message):
+    symptoms_keyboard = Keyboard(message)
+    symptoms_keyboard.symptoms_keyboard()
+    
+    
+@bot.message_handler(regexp='Заболевание')
+def illness(message):
+    illness_keyboard = Keyboard(message)
+    illness_keyboard.illness_keyboard()
+    
+    
+@bot.message_handler(regexp='Профилактика')
+def prophylaxis(message):
+    prophylaxis_keyboard = Keyboard(message)
+    prophylaxis_keyboard.prophylaxis_keyboard()
     
 
 bot.polling(none_stop=True, interval=0)
