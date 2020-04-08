@@ -34,6 +34,7 @@ def faq(message):
 
 @bot.message_handler(redexp='В главное меню')
 def back_to_main_menu(message):
+    bot.reply_to(message, 'В главное меню')
     main_menu_keyboard = Keyboard(message)
     main_menu_keyboard.start_keyboard()
 
