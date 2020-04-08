@@ -8,6 +8,7 @@ from telebot import types
 
 import config
 from keyboard import *
+from keyboard import previous_section
 
 from inline_keyboard import *
 
@@ -23,7 +24,7 @@ def welcome(message):
     bot.reply_to(message, 'Hello World!')  # Приветствие, введение для пользователя
     welcome_keyboard = Keyboard(message)
     welcome_keyboard.start_keyboard()
-
+    
 
 @bot.message_handler(regexp='F.A.Q.')
 def faq(message):
