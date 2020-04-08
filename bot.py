@@ -1,4 +1,5 @@
 import telebot
+import keyboard
 import time
 
 # import logging
@@ -8,7 +9,6 @@ from telebot import types
 
 import config
 from keyboard import *
-from keyboard import previous_section
 
 from inline_keyboard import *
 
@@ -24,7 +24,7 @@ def welcome(message):
     bot.reply_to(message, 'Hello World!')  # Приветствие, введение для пользователя
     welcome_keyboard = Keyboard(message)
     welcome_keyboard.start_keyboard()
-    
+
 
 @bot.message_handler(regexp='F.A.Q.')
 def faq(message):
@@ -47,7 +47,7 @@ def statistics(message):
 @bot.message_handler(regexp='Назад')
 def step_back(message):
     step_back_keyboard = Keyboard(message)
-    eval('step_back_keyboard.'+previous_section)
+    eval('step_back_keyboard.'+keyboard.previous_section)
 
 
 @bot.message_handler(regexp='По России')
