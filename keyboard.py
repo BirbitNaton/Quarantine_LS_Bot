@@ -56,7 +56,7 @@ class Keyboard:
 
     def russia_keyboard(self):
         global previous_section
-        previous_section = 'stat.keyboard()'
+        previous_section = 'stat_keyboard()'
         
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         back_button = types.KeyboardButton('В главное меню')
@@ -67,7 +67,7 @@ class Keyboard:
 
     def world_keyboard(self):
         global previous_section
-        previous_section = 'stat.keyboard()'
+        previous_section = 'stat_keyboard()'
         
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         back_button = types.KeyboardButton('В главное меню')
