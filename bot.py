@@ -38,4 +38,16 @@ def back_to_main_menu(message):
     main_menu_keyboard.start_keyboard()
 
 
+@bot.message_handler(regexp='Stat')
+def statistics(message):
+    stat_keyboard = Keyboard(message)
+    stat_keyboard.stat_keyboard()
+    
+
+@bot.message_handler(regexp='Назад')
+def step_back(message):
+    step_back_keyboard = Keyboard(message)
+    eval('step_back_keyboard.'+'stat_keyboard()')
+    
+
 bot.polling(none_stop=True, interval=0)
