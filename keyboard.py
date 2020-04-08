@@ -11,7 +11,7 @@ class Keyboard:
 
     def start_keyboard(self):
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=False)
-        faq_button = types.KeyboardButton(text = 'F.A.Q.')
+        faq_button = types.KeyboardButton('F.A.Q.')
         stat_button = types.KeyboardButton('Stat')
         prof_button = types.KeyboardButton('Профилактика')
         # markup.ResizeKeyboard = True
@@ -28,4 +28,15 @@ class Keyboard:
         markup.row(sick_button, symptomes_button)
         markup.row(back_button)
         text = 'Text'  # Объяснение секций выбора
+        bot.send_message(self.message.from_user.id, text, reply_markup=markup)
+
+    def stat_keyboard(self):
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        russia_button = types.KeyboardButton('По России')
+        world_button = types.KeyboardButton('По миру')
+        back_button = types.KeyboardButton('В главное меню')
+        step_back_button = types.KeyboardButton('Назад')
+        markup.row(russia_button, world_button)
+        markup.row(back_button, step_back_button)
+        text = 'Выберите формат статистики.'
         bot.send_message(self.message.from_user.id, text, reply_markup=markup)
