@@ -24,7 +24,7 @@ class Keyboard:
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         sick_button = types.KeyboardButton('Заболевание')
         symptomes_button = types.KeyboardButton('Симптомы')
-        back_button = types.KeyboardButton('Назад')
+        back_button = types.KeyboardButton('В главное меню')
         markup.row(sick_button, symptomes_button)
         markup.row(back_button)
         text = 'Text'  # Объяснение секций выбора
