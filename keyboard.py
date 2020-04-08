@@ -79,11 +79,44 @@ class Keyboard:
 
     def miscellaneous_keyboard(self):
         global previous_section
-        previous_section = 'faq_button_keyboard()'
+        previous_section = 'faq_keyboard()'
 
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         back_button = types.KeyboardButton('В главное меню')
         step_back_button = types.KeyboardButton('Назад')
         markup.row(back_button, step_back_button)
         text = 'Miscellaneous'
+        bot.send_message(self.message.from_user.id, text, reply_markup=markup)
+
+    def symptoms_keyboard(self):
+        global previous_section
+        previous_section = 'faq_button_keyboard()'
+
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        back_button = types.KeyboardButton('В главное меню')
+        step_back_button = types.KeyboardButton('Назад')
+        markup.row(back_button, step_back_button)
+        text = 'symptoms'
+        bot.send_message(self.message.from_user.id, text, reply_markup=markup)
+
+    def illness_keyboard(self):
+        global previous_section
+        previous_section = 'faq_button_keyboard()'
+
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        back_button = types.KeyboardButton('В главное меню')
+        step_back_button = types.KeyboardButton('Назад')
+        markup.row(back_button, step_back_button)
+        text = 'illness'
+        bot.send_message(self.message.from_user.id, text, reply_markup=markup)
+
+    def prophylaxis_keyboard(self):
+        global previous_section
+        previous_section = 'start_keyboard()'
+
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        back_button = types.KeyboardButton('В главное меню')
+        step_back_button = types.KeyboardButton('Назад')
+        markup.row(back_button, step_back_button)
+        text = 'prevention ways'
         bot.send_message(self.message.from_user.id, text, reply_markup=markup)
