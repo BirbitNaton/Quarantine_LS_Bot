@@ -31,7 +31,7 @@ def welcome(message):
 @bot.message_handler(regexp='F.A.Q.')
 def faq(message):
     global previous_section
-    previous_section = 'faq_button_keyboard'
+    previous_section = 'start_keyboard()'
     faq_keyboard = Keyboard(message)
     faq_keyboard.faq_button_keyboard()
 
@@ -60,12 +60,16 @@ def step_back(message):
 
 @bot.message_handler(regexp='По России')
 def russian_stats(message):
+    global previous_section
+    previous_section = 'stat.keyboard()'
     russian_stats_keyboard = Keyboard(message)
     russian_stats_keyboard.russia_keyboard()
 
 
 @bot.message_handler(regexp='По Миру')
 def world_stats(message):
+    global previous_section
+    previous_section = 'stat.keyboard()'
     world_stats_keyboard = Keyboard(message)
     world_stats_keyboard.russia_keyboard()
 
