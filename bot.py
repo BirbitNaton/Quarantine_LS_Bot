@@ -33,9 +33,9 @@ def faq(message):
 
 
 @bot.message_handler(redexp='В главное меню')
-def one_layer_back(message):
-    welcome_keyboard = Keyboard(message)
-    welcome_keyboard.start_keyboard()
+def back_to_main_menu(message):
+    main_menu_keyboard = Keyboard(message)
+    main_menu_keyboard.start_keyboard()
 
 
 bot.polling(none_stop=True, interval=0)
