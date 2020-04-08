@@ -79,7 +79,7 @@ class Keyboard:
 
     def miscellaneous_keyboard(self):
         global previous_section
-        previous_section = 'faq_keyboard()'
+        previous_section = 'faq_button_keyboard()'
 
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         back_button = types.KeyboardButton('В главное меню')
