@@ -11,100 +11,97 @@ bot = telebot.TeleBot(token)
 previous_section = 'start'
 
 
-def get_mos_stats():
-    html = requests.get('https://coronavirus-monitor.info/country/russia/moskva/').text
-    soup = BeautifulSoup(html, 'lxml')
-
-    mos_infected = soup.find('div', class_='info_blk stat_block confirmed').find('h2').text.split('+')[0][8::]
-    mos_cured = soup.find('div', class_='info_blk stat_block cured').find('h2').text.split('+')[0][8::]
-    mos_dead = soup.find('div', class_='info_blk stat_block deaths').find('h2').text.split('+')[0][7::]
-
-    try:
-        mos_infected_sup = soup.find('div', class_='info_blk stat_block confirmed').find('sup').text
-    except Exception:
-        mos_infected_sup = '+0'
-
-    try:
-        mos_cured_sup = soup.find('div', class_='info_blk stat_block cured').find('sup').text
-    except Exception:
-        mos_cured_sup = '+0'
-
-    try:
-        mos_dead_sup = soup.find('div', class_='info_blk stat_block deaths').find('sup').text
-    except Exception:
-        mos_dead_sup = '+0'
-
-    mos_infected = 'Заражено: ' + mos_infected + ' ({} за сутки)'.format(mos_infected_sup)
-    mos_cured = 'Вылечено: ' + mos_cured + ' ({} за сутки)'.format(mos_cured_sup)
-    mos_dead = 'Погибло: ' + mos_dead + ' ({} за сутки)'.format(mos_dead_sup)
-
-    return mos_infected, mos_cured, mos_dead
-
-
-def get_rus_stats():
-    html = requests.get('https://coronavirus-monitor.info/country/russia/').text
-    soup = BeautifulSoup(html, 'lxml')
-
-    rus_infected = soup.find('div', class_='info_blk stat_block confirmed').find('h2').text.split('+')[0][8::]
-    rus_cured = soup.find('div', class_='info_blk stat_block cured').find('h2').text.split('+')[0][8::]
-    rus_dead = soup.find('div', class_='info_blk stat_block deaths').find('h2').text.split('+')[0][7::]
-
-    try:
-        rus_infected_sup = soup.find('div', class_='info_blk stat_block confirmed').find('sup').text
-    except Exception:
-        rus_infected_sup = '+0'
-
-    try:
-        rus_cured_sup = soup.find('div', class_='info_blk stat_block cured').find('sup').text
-    except Exception:
-        rus_cured_sup = '+0'
-
-    try:
-        rus_dead_sup = soup.find('div', class_='info_blk stat_block deaths').find('sup').text
-    except Exception:
-        rus_dead_sup = '+0'
-
-    rus_infected = 'Заражено: ' + rus_infected + ' ({} за сутки)'.format(rus_infected_sup)
-    rus_cured = 'Вылечено: ' + rus_cured + ' ({} за сутки)'.format(rus_cured_sup)
-    rus_dead = 'Погибло: ' + rus_dead + ' ({} за сутки)'.format(rus_dead_sup)
-
-    return rus_infected, rus_cured, rus_dead
-
-
-def get_world_stats():
-    html = requests.get('https://coronavirus-monitor.info/#stats').text
-    soup = BeautifulSoup(html, 'lxml')
-
-    world_infected = soup.find('div', class_='info_blk stat_block confirmed').find('h2').text.split('+')[0][8::]
-    world_cured = soup.find('div', class_='info_blk stat_block cured').find('h2').text.split('+')[0][8::]
-    world_dead = soup.find('div', class_='info_blk stat_block deaths').find('h2').text.split('+')[0][7::]
-
-    try:
-        world_infected_sup = soup.find('div', class_='info_blk stat_block confirmed').find('sup').text
-    except Exception:
-        world_infected_sup = '+0'
-
-    try:
-        world_cured_sup = soup.find('div', class_='info_blk stat_block cured').find('sup').text
-    except Exception:
-        world_cured_sup = '+0'
-
-    try:
-        world_dead_sup = soup.find('div', class_='info_blk stat_block death').find('sup').text
-    except Exception:
-        world_dead_sup = '+0'
-
-    world_infected = 'Заражено: ' + world_infected + ' ({} за сутки)'.format(world_infected_sup)
-    world_cured = 'Вылечено: ' + world_cured + ' ({} за сутки)'.format(world_cured_sup)
-    world_dead = 'Погибло: ' + world_dead + ' ({} за сутки)'.format(world_dead_sup)
-
-    return world_infected, world_cured, world_dead
-
-
 class Keyboard:
 
     def __init__(self, message):
         self.message = message
+
+    def get_mos_stats(self):
+        html = requests.get('https://coronavirus-monitor.info/country/russia/moskva/').text
+        soup = BeautifulSoup(html, 'lxml')
+
+        mos_infected = soup.find('div', class_='info_blk stat_block confirmed').find('h2').text.split('+')[0][8::]
+        mos_cured = soup.find('div', class_='info_blk stat_block cured').find('h2').text.split('+')[0][8::]
+        mos_dead = soup.find('div', class_='info_blk stat_block deaths').find('h2').text.split('+')[0][7::]
+
+        try:
+            mos_infected_sup = soup.find('div', class_='info_blk stat_block confirmed').find('sup').text
+        except Exception:
+            mos_infected_sup = '+0'
+
+        try:
+            mos_cured_sup = soup.find('div', class_='info_blk stat_block cured').find('sup').text
+        except Exception:
+            mos_cured_sup = '+0'
+
+        try:
+            mos_dead_sup = soup.find('div', class_='info_blk stat_block deaths').find('sup').text
+        except Exception:
+            mos_dead_sup = '+0'
+
+        mos_infected = 'Заражено: ' + mos_infected + ' ({} за сутки)'.format(mos_infected_sup)
+        mos_cured = 'Вылечено: ' + mos_cured + ' ({} за сутки)'.format(mos_cured_sup)
+        mos_dead = 'Погибло: ' + mos_dead + ' ({} за сутки)'.format(mos_dead_sup)
+
+        return mos_infected, mos_cured, mos_dead
+
+    def get_rus_stats(self):
+        html = requests.get('https://coronavirus-monitor.info/country/russia/').text
+        soup = BeautifulSoup(html, 'lxml')
+
+        rus_infected = soup.find('div', class_='info_blk stat_block confirmed').find('h2').text.split('+')[0][8::]
+        rus_cured = soup.find('div', class_='info_blk stat_block cured').find('h2').text.split('+')[0][8::]
+        rus_dead = soup.find('div', class_='info_blk stat_block deaths').find('h2').text.split('+')[0][7::]
+
+        try:
+            rus_infected_sup = soup.find('div', class_='info_blk stat_block confirmed').find('sup').text
+        except Exception:
+            rus_infected_sup = '+0'
+
+        try:
+            rus_cured_sup = soup.find('div', class_='info_blk stat_block cured').find('sup').text
+        except Exception:
+            rus_cured_sup = '+0'
+
+        try:
+            rus_dead_sup = soup.find('div', class_='info_blk stat_block deaths').find('sup').text
+        except Exception:
+            rus_dead_sup = '+0'
+
+        rus_infected = 'Заражено: ' + rus_infected + ' ({} за сутки)'.format(rus_infected_sup)
+        rus_cured = 'Вылечено: ' + rus_cured + ' ({} за сутки)'.format(rus_cured_sup)
+        rus_dead = 'Погибло: ' + rus_dead + ' ({} за сутки)'.format(rus_dead_sup)
+
+        return rus_infected, rus_cured, rus_dead
+
+    def get_world_stats(self):
+        html = requests.get('https://coronavirus-monitor.info/#stats').text
+        soup = BeautifulSoup(html, 'lxml')
+
+        world_infected = soup.find('div', class_='info_blk stat_block confirmed').find('h2').text.split('+')[0][8::]
+        world_cured = soup.find('div', class_='info_blk stat_block cured').find('h2').text.split('+')[0][8::]
+        world_dead = soup.find('div', class_='info_blk stat_block deaths').find('h2').text.split('+')[0][7::]
+
+        try:
+            world_infected_sup = soup.find('div', class_='info_blk stat_block confirmed').find('sup').text
+        except Exception:
+            world_infected_sup = '+0'
+
+        try:
+            world_cured_sup = soup.find('div', class_='info_blk stat_block cured').find('sup').text
+        except Exception:
+            world_cured_sup = '+0'
+
+        try:
+            world_dead_sup = soup.find('div', class_='info_blk stat_block death').find('sup').text
+        except Exception:
+            world_dead_sup = '+0'
+
+        world_infected = 'Заражено: ' + world_infected + ' ({} за сутки)'.format(world_infected_sup)
+        world_cured = 'Вылечено: ' + world_cured + ' ({} за сутки)'.format(world_cured_sup)
+        world_dead = 'Погибло: ' + world_dead + ' ({} за сутки)'.format(world_dead_sup)
+
+        return world_infected, world_cured, world_dead
 
     def start_keyboard(self):
         global previous_section
@@ -165,7 +162,7 @@ class Keyboard:
         back_button = types.KeyboardButton('В главное меню')
         step_back_button = types.KeyboardButton('Назад')
         markup.row(back_button, step_back_button)
-        text = ('\n'.join(get_rus_stats()))
+        text = ('\n'.join(self.get_rus_stats()))
         bot.send_message(self.message.from_user.id, text, reply_markup=markup)
 
     def moscow_keyboard(self):
@@ -176,7 +173,7 @@ class Keyboard:
         back_button = types.KeyboardButton('В главное меню')
         step_back_button = types.KeyboardButton('Назад')
         markup.row(back_button, step_back_button)
-        text = ('\n'.join(get_mos_stats()))
+        text = ('\n'.join(self.get_mos_stats()))
         bot.send_message(self.message.from_user.id, text, reply_markup=markup)
 
     def world_keyboard(self):
@@ -187,7 +184,7 @@ class Keyboard:
         back_button = types.KeyboardButton('В главное меню')
         step_back_button = types.KeyboardButton('Назад')
         markup.row(back_button, step_back_button)
-        text = ('\n'.join(get_world_stats()))
+        text = ('\n'.join(self.get_world_stats()))
         bot.send_message(self.message.from_user.id, text, reply_markup=markup)
 
     def miscellaneous_keyboard(self):
