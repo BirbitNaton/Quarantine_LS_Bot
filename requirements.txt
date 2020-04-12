@@ -1,4 +1,2 @@
 pyTelegramBotAPI
 beautifulsoup4
-requests
-bs4
