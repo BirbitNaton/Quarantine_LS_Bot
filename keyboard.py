@@ -93,7 +93,7 @@ class Keyboard:
             world_cured_sup = '+0'
 
         try:
-            world_dead_sup = soup.find('div', class_='info_blk stat_block death').find('sup').text
+            world_dead_sup = soup.find('div', class_='info_blk stat_block deaths').find('sup').text
         except Exception:
             world_dead_sup = '+0'
 
