@@ -2,3 +2,5 @@ pyTelegramBotAPI
 bs4
 requests
 beautifulsoup4
+lxml
+urllib3
