@@ -17,7 +17,8 @@ class Keyboard:
         self.message = message
 
     def get_mos_stats(self):
-        html = requests.get('https://coronavirus-monitor.info/country/russia/moskva/').text
+        headers = {'user-agent': 'my-app/0.0.1'}
+        html = requests.get('https://coronavirus-monitor.info/country/russia/moskva/', hedaers=headers).text
         soup = BeautifulSoup(html, 'lxml')
 
         mos_infected = soup.find('div', class_='info_blk stat_block confirmed').find('h2').text.split('+')[0][8::]
