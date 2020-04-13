@@ -19,7 +19,7 @@ class Keyboard:
     def get_mos_stats(self):
         user_agent = ('Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) '
               'Gecko/20100101 Firefox/50.0')
-        html = requests.get('https://coronavirus-monitor.info/country/russia/moskva/', headers={'User-Agent':user_agent}).text
+        html = requests.get('https://coronavirus-monitor.info/country/russia/moskva/', headers={'User-Agent':user_agent}, timeout=(10, 0.01), proxies={"http":"http://10.10.1.10:3128"}).text
         soup = BeautifulSoup(html, 'lxml')
 
         mos_infected = soup.find('div', class_='info_blk stat_block confirmed').find('h2').text.split('+')[0][8::]
